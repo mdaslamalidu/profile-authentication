@@ -1,0 +1,28 @@
+.member img{
+    width: 100%;
+    height: 40%;
+    border-radius: 8px;
+}
+
+.member{
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 10px;
+    width: 250px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+
+.addBtn{
+    width: 90%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 8px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    margin-left: 12px;
+    background-color: slategray;
+    color: white;
+}
