@@ -37,7 +37,7 @@ const Members = () => {
 
     const showToastMessage = () => {
         toast.success('Success Notification !', {
-            position: toast.POSITION.TOP_RIGHT
+            position: toast.POSITION.TOP_CENTER
         });
     };
 
@@ -75,8 +75,14 @@ const Members = () => {
                 <div>
                     <h3>Exercise Details</h3>
                     <div>
-                        <h4 className='time-required'>Exercise time: {hours} Hours </h4>
-                        <h4 className='time-required'>Break time: {breakCount} </h4>
+                       <div className='time-zone'>
+                            <h4>Exercise time:</h4>
+                            <p>{hours} Hours</p>
+                       </div>
+                       <div className='time-zone'>
+                            <h4 className='time-required'>Break time:  </h4>
+                            <p>{breakCount} Seconds</p>
+                       </div>
                     </div>
                 </div>
                 <div>
