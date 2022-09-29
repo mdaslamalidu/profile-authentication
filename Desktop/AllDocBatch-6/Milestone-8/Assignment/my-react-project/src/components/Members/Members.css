@@ -8,40 +8,96 @@
     height: 40px;
     border-radius: 50%;
 }
-.members{
+
+.members {
     display: grid;
     grid-template-columns: 4fr 1fr;
+    margin-right: 20px;
 }
 
-.membersInfo{
+.membersInfo {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     margin: 30px 100px;
+    gap: 20px;
 }
 
-.personalInfo{
-    padding-left: 15px;
+.personalInfo {
+    padding: 0 15px;
     background-color: white;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
 }
 
-.myInfo{
+.myInfo {
     display: flex;
     align-items: center;
 }
 
-.myInfo img{
+.myInfo img {
     width: 50px;
     height: 50px;
     border-radius: 20%;
 }
 
-.myDetailsInfo{
+.myDetailsInfo {
     margin-left: 15px;
 }
 
-.myDetailsInfo h3{
+.myDetailsInfo h3 {
     margin-bottom: -15px;
+}
+
+.breakList {
+    display: flex;
+    background-color: #F2F4FA;
+    padding-right: 10px; 
+}
+
+.breakList h3 {
+    margin-left: 10px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.time-required{
+    background-color: #F2F4FA;
+    padding: 20px 10px;
+}
+
+@media only screen and (max-width: 600px) {
+    .members {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 10px;
+        justify-content: center;
+    }
+
+    .membersInfo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0px;
+    }
+
+    .personalInfo {
+        margin: 20px 10px; 
+    }
+
+    .breakList {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width: 900px) and  (min-width: 600px) {
+    .members {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 10px;
+        justify-content: center;
+    }
+
+    .membersInfo {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 60px;
+    }
 }

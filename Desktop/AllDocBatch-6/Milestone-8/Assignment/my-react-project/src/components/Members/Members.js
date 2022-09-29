@@ -6,10 +6,32 @@ import myImage from '../../images/myImage.JPG';
 
 const Members = () => {
     const [members, setMembers] = useState([]);
-    console.log(members)
+    const [hours, setHours] = useState(0);
+    const [breakCount, setBreakCount] = useState('');
+
     useEffect(() => {
         fetch("fake.json").then(res => res.json()).then(data => setMembers(data))
     }, [])
+
+    const handleBtn = (getHours) => {
+        const newHours = getHours + hours;
+        setHours(newHours)
+    }
+
+    const handleBreak = (e) => {
+        const breakData = e.target.innerText;
+        localStorage.setItem("breakCount", breakData);
+        setBreakCount(e.target.innerText)
+    }
+    
+    useEffect(() => {
+        const getItem = JSON.parse(localStorage.getItem("breakCount"));
+        if(getItem){
+            setBreakCount(getItem)
+        }
+    }, [])
+
+
     return (
         <div className='members'>
             <div>
@@ -19,7 +41,7 @@ const Members = () => {
                 </div>
                 <div className='membersInfo'>
                     {
-                        members.map(member => <Member key={member.id} member={member}/>)
+                        members.map(member => <Member key={member.id} member={member} handleBtn={handleBtn}/>)
                     }
                 </div>
             </div>
@@ -30,6 +52,26 @@ const Members = () => {
                         <h3>Md Aslam Ali</h3>
                         <p>Dhaka, Bangladesh</p>
                     </div>
+                </div>
+                <div>
+                    <h3>Add Break</h3>
+                    <div className='breakList'>
+                        <h3 onClick={handleBreak}>10</h3>
+                        <h3 onClick={handleBreak}>40</h3>
+                        <h3 onClick={handleBreak}>30</h3>
+                        <h3 onClick={handleBreak}>50</h3>
+                        <h3 onClick={handleBreak}>60</h3>
+                    </div>
+                </div>
+                <div>
+                    <h3>Exercise Details</h3>
+                    <div>
+                        <h4 className='time-required'>Exercise time: {hours} Hours </h4>
+                        <h4 className='time-required'>Break time: {breakCount} </h4>
+                    </div>
+                </div>
+                <div>
+                   
                 </div>
             </div>
         </div>

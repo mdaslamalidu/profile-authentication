@@ -1,14 +1,15 @@
 import React from 'react';
 import "./Member.css";
 
-const Member = ({member}) => {
+const Member = ({member, handleBtn}) => {
+    const {name, hours} = member;
     return (
         <div className='member'>
                 <img src={member.picture} alt="" />
-                <h2>Team Name: {member.name}</h2>
-                <p>Time Needed: {member.hours} hours</p>
+                <h2>Team Name: {name}</h2>
+                <p>Time Needed: {hours} hours</p>
                 <div className='btn'>
-                    <button className='addBtn'>Add To Cart</button>
+                <button onClick={() => handleBtn(hours)} className='addBtn'>Add To Cart</button>
                 </div>
         </div>
     );
