@@ -3,6 +3,9 @@ import Member from '../Member/Member';
 import './Members.css';
 import logo from '../../images/logo.png';
 import myImage from '../../images/myImage.JPG';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Members = () => {
     const [members, setMembers] = useState([]);
@@ -31,6 +34,12 @@ const Members = () => {
         }
     }, [])
 
+
+    const showToastMessage = () => {
+        toast.success('Success Notification !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    };
 
     return (
         <div className='members'>
@@ -71,7 +80,8 @@ const Members = () => {
                     </div>
                 </div>
                 <div>
-                   
+                    <button className='toastBtn' onClick={showToastMessage}>Activity Completed</button>
+                    <ToastContainer />
                 </div>
             </div>
         </div>
